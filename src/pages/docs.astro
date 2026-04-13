@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Documentation - The Davinci Project" description="Developer documentation for The Davinci Project.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Documentation</h1>
+      <p class="subtitle">Everything you need to integrate with The Davinci Project.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="docs-grid">
+        <div class="doc-card">
+          <h3>Getting Started</h3>
+          <p>Quick start guide for new developers integrating with our escrow protocol.</p>
+          <a href="/docs/getting-started" class="doc-link">Read Guide →</a>
+        </div>
+        
+        <div class="doc-card">
+          <h3>API Reference</h3>
+          <p>Complete API documentation with endpoints, parameters, and examples.</p>
+          <a href="/api" class="doc-link">View API →</a>
+        </div>
+        
+        <div class="doc-card">
+          <h3>SDK Documentation</h3>
+          <p>Client libraries and SDKs for popular programming languages.</p>
+          <a href="/docs/sdk" class="doc-link">Explore SDKs →</a>
+        </div>
+        
+        <div class="doc-card">
+          <h3>Integration Guides</h3>
+          <p>Step-by-step guides for integrating with various platforms.</p>
+          <a href="/docs/integration" class="doc-link">View Guides →</a>
+        </div>
+        
+        <div class="doc-card">
+          <h3>Security Best Practices</h3>
+          <p>Learn how to securely implement our escrow protocol in your application.</p>
+          <a href="/docs/security" class="doc-link">Learn More →</a>
+        </div>
+        
+        <div class="doc-card">
+          <h3>Changelog</h3>
+          <p>Stay up to date with the latest changes and improvements.</p>
+          <a href="/docs/changelog" class="doc-link">View Changes →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .doc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  
+  .doc-card:hover {
+    border-color: var(--accent-green);
+    transform: translateY(-4px);
+  }
+  
+  .doc-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .doc-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .doc-link {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .doc-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .docs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

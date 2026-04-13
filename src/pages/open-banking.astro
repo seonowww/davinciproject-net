@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Open Banking - The Davinci Project" description="Enable secure data sharing and financial innovation.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Open Banking</h1>
+      <p class="subtitle">Enable secure data sharing and financial innovation through open APIs.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>What is Open Banking?</h2>
+      <p>Open Banking is a financial services model that enables third-party developers to build applications and services around financial institutions. Our protocol provides the secure infrastructure needed for open banking in the digital asset space.</p>
+      
+      <h2>Our Approach</h2>
+      <p>The Davinci Project supports Open Banking through:</p>
+      <ul>
+        <li>Standardized API endpoints for escrow services</li>
+        <li>Secure data sharing with user consent</li>
+        <li>Interoperability with traditional banking systems</li>
+        <li>Transparent transaction history and reporting</li>
+        <li>Compliance with global Open Banking standards</li>
+      </ul>
+      
+      <h2>Benefits</h2>
+      <ul>
+        <li>Enhanced customer experience through integrated services</li>
+        <li>Increased competition and innovation</li>
+        <li>Better financial data management</li>
+        <li>Seamless cross-platform transactions</li>
+      </ul>
+      
+      <div class="cta-section">
+        <h3>Explore Open Banking possibilities</h3>
+        <p>Learn how our open APIs can enable new financial products.</p>
+        <a href="/api" class="btn btn-primary">View API Docs</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .content-section p, .content-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  
+  .content-section ul {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .cta-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary {
+    background: var(--accent-green);
+    color: #000;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

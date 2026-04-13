@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Careers - The Davinci Project" description="Join our team and help build the future of digital asset transfers.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Careers</h1>
+      <p class="subtitle">Join our team and help build the future of digital asset transfers.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Why Join Us?</h2>
+      <p>The Davinci Project is at the forefront of digital asset transfer technology. We're building a protocol that provides trust, security, and reliability in the world of cryptocurrency.</p>
+      <p>We're looking for talented individuals who are passionate about blockchain technology and want to make a real impact in the financial world.</p>
+      
+      <h2>Open Positions</h2>
+      <div class="positions-list">
+        <div class="position-item">
+          <h3>Senior Blockchain Developer</h3>
+          <p>We're looking for an experienced blockchain developer to help build and maintain our escrow protocol.</p>
+          <span class="position-type">Full-time · Remote</span>
+        </div>
+        <div class="position-item">
+          <h3>Security Engineer</h3>
+          <p>Help us ensure the highest levels of security for our protocol and user assets.</p>
+          <span class="position-type">Full-time · Remote</span>
+        </div>
+        <div class="position-item">
+          <h3>Product Manager</h3>
+          <p>Lead the development and strategy of our product offerings.</p>
+          <span class="position-type">Full-time · Remote</span>
+        </div>
+      </div>
+      
+      <h2>Get in Touch</h2>
+      <p>Don't see a position that matches your skills? We're always interested in hearing from talented individuals. Send your resume and a brief introduction to <a href="mailto:careers@davinciproject.net">careers@davinciproject.net</a></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .content-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+  }
+  
+  .content-section a {
+    color: var(--accent-green);
+  }
+  
+  .positions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .position-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  
+  .position-item:hover {
+    border-color: var(--accent-green);
+  }
+  
+  .position-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .position-item p {
+    margin-bottom: 1rem;
+  }
+  
+  .position-type {
+    font-size: 0.85rem;
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

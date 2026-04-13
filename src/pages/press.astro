@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Press - The Davinci Project" description="Press resources and media kit for The Davinci Project.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Press</h1>
+      <p class="subtitle">Resources for journalists and media professionals.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Press Releases</h2>
+      
+      <div class="press-list">
+        <div class="press-item">
+          <span class="press-date">April 2026</span>
+          <h3>The Davinci Project Announces Protocol Upgrade</h3>
+          <p>The Davinci Project has completed a major protocol upgrade, introducing enhanced security features and improved transaction throughput.</p>
+          <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+        
+        <div class="press-item">
+          <span class="press-date">January 2026</span>
+          <h3>New Partnership Expands Multi-Chain Support</h3>
+          <p>The Davinci Project partners with leading blockchain networks to expand escrow protocol support across multiple chains.</p>
+          <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+        
+        <div class="press-item">
+          <span class="press-date">October 2025</span>
+          <h3>The Davinci Project Reaches $1B in Escrowed Transactions</h3>
+          <p>The protocol has now facilitated over $1 billion in secure digital asset transfers since launch.</p>
+          <a href="#" class="press-link">Read Full Release →</a>
+        </div>
+      </div>
+      
+      <h2>Media Assets</h2>
+      <p>Download our logo, brand guidelines, and other media assets for press coverage.</p>
+      <a href="#" class="btn btn-primary">Download Media Kit</a>
+      
+      <h2>Press Contact</h2>
+      <p>For press inquiries, please contact:</p>
+      <p><strong>Email:</strong> <a href="mailto:press@davinciproject.net">press@davinciproject.net</a></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .press-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .press-date {
+    font-size: 0.85rem;
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+  
+  .press-item h3 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+  }
+  
+  .press-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .press-link {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .press-link:hover {
+    text-decoration: underline;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 1rem 0;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary {
+    background: var(--accent-green);
+    color: #000;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

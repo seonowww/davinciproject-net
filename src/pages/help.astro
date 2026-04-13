@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Help Center - The Davinci Project" description="Get help with The Davinci Project.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Help Center</h1>
+      <p class="subtitle">Find answers to common questions and get support.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What is The Davinci Project?</h3>
+          <p>The Davinci Project is a digital asset transfer escrow protocol that provides reliability and safety for cryptocurrency transactions. We act as a trusted intermediary to ensure secure transfers between parties.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How does the escrow protocol work?</h3>
+          <p>When a transaction is initiated, funds are held in a multi-signature escrow account. Once all conditions are met and both parties confirm the transaction, the funds are released to the recipient.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Which cryptocurrencies are supported?</h3>
+          <p>We support major cryptocurrencies including Bitcoin (BTC), Ethereum (ETH), and various ERC-20 tokens. Check our documentation for the full list of supported assets.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is my data secure?</h3>
+          <p>Yes, we use industry-standard security practices including multi-signature wallets, encryption, and regular security audits to protect your assets and data.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How can I integrate with my platform?</h3>
+          <p>We provide comprehensive APIs and SDKs for easy integration. Visit our API documentation to get started, or contact our support team for assistance.</p>
+        </div>
+      </div>
+      
+      <h2>Still Need Help?</h2>
+      <p>Can't find what you're looking for? Our support team is here to help.</p>
+      <a href="mailto:support@davinciproject.net" class="btn btn-primary">Contact Support</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 2rem;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary {
+    background: var(--accent-green);
+    color: #000;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="API Reference - The Davinci Project" description="Complete API documentation for The Davinci Project.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>API Reference</h1>
+      <p class="subtitle">Complete documentation for The Davinci Project API.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Base URL</h2>
+      <code class="base-url">https://api.davinciproject.net/v1</code>
+      
+      <h2>Authentication</h2>
+      <p>All API requests require authentication using an API key. Include your key in the Authorization header:</p>
+      <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+      
+      <h2>Endpoints</h2>
+      
+      <div class="endpoint">
+        <h3><span class="method get">GET</span> /escrow/transactions</h3>
+        <p>Retrieve a list of escrow transactions.</p>
+        <h4>Query Parameters</h4>
+        <ul>
+          <li><code>status</code> - Filter by status (pending, completed, cancelled)</li>
+          <li><code>limit</code> - Number of results (default: 20, max: 100)</li>
+          <li><code>offset</code> - Pagination offset</li>
+        </ul>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method post">POST</span> /escrow/create</h3>
+        <p>Create a new escrow transaction.</p>
+        <h4>Request Body</h4>
+        <ul>
+          <li><code>amount</code> (required) - Transaction amount</li>
+          <li><code>currency</code> (required) - Currency code (BTC, ETH, etc.)</li>
+          <li><code>recipient</code> (required) - Recipient address</li>
+          <li><code>conditions</code> - Optional escrow conditions</li>
+        </ul>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method post">POST</span> /escrow/release</h3>
+        <p>Release funds from escrow to the recipient.</p>
+        <h4>Request Body</h4>
+        <ul>
+          <li><code>transaction_id</code> (required) - Escrow transaction ID</li>
+          <li><code>signature</code> (required) - Authorized signature</li>
+        </ul>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method get">GET</span> /escrow/&lbrace;id&rbrace;</h3>
+        <p>Get details of a specific escrow transaction.</p>
+        <h4>Path Parameters</h4>
+        <ul>
+          <li><code>id</code> (required) - Transaction ID</li>
+        </ul>
+      </div>
+      
+      <h2>Error Codes</h2>
+      <div class="error-codes">
+        <div class="error-item">
+          <code>400</code>
+          <span>Bad Request - Invalid parameters</span>
+        </div>
+        <div class="error-item">
+          <code>401</code>
+          <span>Unauthorized - Invalid or missing API key</span>
+        </div>
+        <div class="error-item">
+          <code>404</code>
+          <span>Not Found - Resource does not exist</span>
+        </div>
+        <div class="error-item">
+          <code>429</code>
+          <span>Too Many Requests - Rate limit exceeded</span>
+        </div>
+        <div class="error-item">
+          <code>500</code>
+          <span>Internal Server Error</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .content-section h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-primary);
+  }
+  
+  .content-section h4 {
+    font-size: 1rem;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--text-secondary);
+  }
+  
+  .content-section p, .content-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+  
+  .content-section ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .base-url {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: monospace;
+    color: var(--accent-green);
+    margin-bottom: 2rem;
+  }
+  
+  pre {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+  
+  code {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.9em;
+  }
+  
+  .method {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+  
+  .method.get {
+    background: var(--accent-cyan);
+    color: #000;
+  }
+  
+  .method.post {
+    background: var(--accent-green);
+    color: #000;
+  }
+  
+  .endpoint {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .error-codes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .error-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .error-item code {
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    color: var(--accent-pink);
+    min-width: 60px;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

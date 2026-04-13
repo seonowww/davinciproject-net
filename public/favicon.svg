@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="translate(50, 50) rotate(45)">
+    <!-- Outer layer -->
+    <rect x="-40" y="-40" width="80" height="80" fill="none" stroke="#00ff88" stroke-width="4" rx="4"/>
+    <rect x="-30" y="-30" width="60" height="60" fill="none" stroke="#ff4081" stroke-width="4" rx="4"/>
+    <rect x="-20" y="-20" width="40" height="40" fill="none" stroke="#00e5ff" stroke-width="4" rx="4"/>
+    <rect x="-10" y="-10" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="4" rx="4"/>
+    <!-- Corner accents -->
+    <line x1="-45" y1="-45" x2="-35" y2="-35" stroke="#2962ff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="45" y1="-45" x2="35" y2="-35" stroke="#2962ff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-45" y1="45" x2="-35" y2="35" stroke="#2962ff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="45" y1="45" x2="35" y2="35" stroke="#2962ff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

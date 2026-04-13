@@ -1,0 +1,153 @@
+---
+import { getBlogPosts, type BlogPost } from '../../lib/squidex';
+import Layout from '../../layouts/Layout.astro';
+
+let sortedPosts: BlogPost[] = [];
+
+try {
+  const posts = await getBlogPosts();
+  sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.pubDate).valueOf();
+    const dateB = new Date(b.pubDate).valueOf();
+    return dateB - dateA;
+  });
+} catch (error) {
+  // Squidex not configured - show empty state
+  console.log('Squidex CMS not configured. Blog posts will be empty.');
+}
+
+function formatDateString(date: string | Date) {
+  const d = new Date(date);
+  return d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+---
+
+<Layout title="Blog - The Davinci Project" description="Latest insights and articles from The Davinci Project.">
+  <section class="blog-index">
+    <h1>Blog</h1>
+    <p class="subtitle">Insights and articles from our team</p>
+
+    {sortedPosts.length === 0 && (
+      <p class="no-posts">No blog posts yet. Check back soon!</p>
+    )}
+
+    <div class="posts-grid">
+      {sortedPosts.map(post => (
+        <article class="post-card">
+          <div class="meta">
+            <time datetime={new Date(post.pubDate).toISOString()}>
+              {formatDateString(post.pubDate)}
+            </time>
+            {post.category && <span class="category">{post.category}</span>}
+          </div>
+          <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+          <p>{post.description}</p>
+          <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-index { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 8rem 2rem 4rem; 
+  }
+  
+  h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--text-primary); 
+  }
+  
+  .subtitle { 
+    font-size: 1rem; 
+    color: var(--text-secondary); 
+    margin-bottom: 3rem; 
+  }
+  
+  .no-posts { 
+    color: var(--text-secondary); 
+    text-align: center; 
+    padding: 4rem 0; 
+  }
+  
+  .posts-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 2rem; 
+  }
+  
+  .post-card { 
+    background: var(--bg-card); 
+    border-radius: 8px; 
+    padding: 2rem; 
+    border: 1px solid var(--border); 
+    transition: border-color 0.3s; 
+  }
+  
+  .post-card:hover { 
+    border-color: var(--accent-green); 
+  }
+  
+  .meta { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1rem; 
+    font-size: 0.75rem; 
+    color: var(--text-secondary); 
+  }
+  
+  .category { 
+    background: var(--accent-green); 
+    color: #000; 
+    padding: 0.25rem 0.75rem; 
+    border-radius: 9999px; 
+    font-size: 0.65rem; 
+    text-transform: uppercase; 
+    font-weight: 600;
+  }
+  
+  .post-card h2 { 
+    font-size: 1.25rem; 
+    margin-bottom: 0.75rem; 
+  }
+  
+  .post-card h2 a { 
+    color: var(--text-primary); 
+    text-decoration: none; 
+  }
+  
+  .post-card h2 a:hover { 
+    color: var(--accent-green); 
+  }
+  
+  .post-card p { 
+    color: var(--text-secondary); 
+    line-height: 1.6; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  .read-more { 
+    color: var(--accent-green); 
+    text-decoration: none; 
+    font-weight: 500; 
+  }
+
+  @media (max-width: 600px) {
+    .blog-index {
+      padding: 7rem 1rem 3rem;
+    }
+    
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

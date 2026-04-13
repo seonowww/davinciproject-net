@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - The Davinci Project" description="Learn about The Davinci Project and our mission.">
+  <section class="page-hero">
+    <div class="container">
+      <h1>About The Davinci Project</h1>
+      <p class="subtitle">Digital asset transfer escrow protocol providing reliability and safety in an unsafe world.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>The Davinci Project has re-launched under new management with a clear mission: to provide a secure, reliable, and transparent digital asset transfer escrow protocol.</p>
+      <p>We believe that crypto is a vaccine against tyranny. Our protocol ensures that digital assets can be transferred safely and securely, providing trust in an often uncertain digital landscape.</p>
+      
+      <h2>Our Vision</h2>
+      <p>We envision a world where digital asset transfers are as reliable as traditional banking, but with the transparency and security that only blockchain technology can provide.</p>
+      <p>Our escrow protocol acts as a trusted intermediary, ensuring that both parties in a transaction can have confidence that the transfer will complete as agreed.</p>
+      
+      <h2>Our Team</h2>
+      <p>The Davinci Project is managed by a team of experienced professionals in blockchain technology, cybersecurity, and financial services. Our combined expertise allows us to build and maintain a protocol that meets the highest standards of security and reliability.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .content-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

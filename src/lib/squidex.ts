@@ -8,6 +8,8 @@
  * - SQUIDEX_CLIENT_SECRET: <secret>
  */
 
+import { fallbackPosts, type BlogPost as FallbackBlogPost } from '../data/blog';
+
 const SQUIDEX_URL = import.meta.env.SQUIDEX_URL || 'https://cloud.squidex.io';
 const SQUIDEX_APP = import.meta.env.SQUIDEX_APP || 'davinciproject';
 const SQUIDEX_CLIENT_ID = import.meta.env.SQUIDEX_CLIENT_ID || 'davinciproject:default';
@@ -61,6 +63,11 @@ export interface BlogPost {
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
+  // If no Squidex secret is configured, use fallback posts from src/data/blog.ts
+  if (!SQUIDEX_CLIENT_SECRET) {
+    return fallbackPosts as FallbackBlogPost[];
+  }
+
   const token = await getAuthToken();
 
   const response = await fetch(
@@ -74,12 +81,14 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   );
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch blog posts: ${response.status}`);
+    console.warn(`Squidex fetch failed: ${response.status}. Falling back to local posts.`);
+    return fallbackPosts as FallbackBlogPost[];
   }
 
   const data = await response.json();
 
-  return (data.items || []).map((item: any) => ({
+  // Merge remote posts with fallback posts (fallback posts are last)
+  const remotePosts = (data.items || []).map((item: any) => ({
     id: item.id,
     title: item.data.title?.iv || '',
     h1: item.data.h1?.iv || '',
@@ -96,6 +105,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       ? item.data.title.iv.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       : item.id,
   }));
+
+  return [...remotePosts, ...(fallbackPosts as FallbackBlogPost[])];
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {

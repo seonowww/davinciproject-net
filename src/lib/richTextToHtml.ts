@@ -13,8 +13,9 @@ interface ProseMirrorNode {
   marks?: Array<{ type: string }>;
 }
 
-export function richTextToHtml(node: ProseMirrorNode | null): string {
+export function richTextToHtml(node: ProseMirrorNode | string | null): string {
   if (!node) return '';
+  if (typeof node === 'string') return node;
   return renderNode(node);
 }
 
